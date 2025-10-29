@@ -1,6 +1,7 @@
 package myle.testcases;
 
 import myle.utilities.Links;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,10 +9,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
 
@@ -25,6 +26,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(Links.DOMAIN);
+
     }
 
     @AfterMethod

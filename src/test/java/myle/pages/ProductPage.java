@@ -1,22 +1,17 @@
 package myle.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
-import org.openqa.selenium.TimeoutException;
-
 import static myle.utilities.Links.URL_PRODUCTS;
 
-public class ProductPage {
-    WebDriver driver;
+public class ProductPage extends BasePage {
 
     @FindBy(css = "div.product-image-wrapper")
     List<WebElement> productList;
@@ -38,10 +33,16 @@ public class ProductPage {
     WebElement searchBtn;
     @FindBy(xpath = "//h2[normalize-space()='Searched Products']")
     WebElement searchedProductsText;
+    @FindBy(css = ".btn.btn-success.close-modal.btn-block")
+    WebElement continueShoppingBtn;
+    @FindBy(xpath = "//u[normalize-space()='View Cart']")
+    WebElement viewCartBtn;
+
+    @FindBy(xpath = "//h2[normalize-space()='All Products']")
+    WebElement allProductsTitle;
 
     public ProductPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public boolean isAllProductPageVisible() {
@@ -54,6 +55,16 @@ public class ProductPage {
             return false;
         }
     }
+
+//    public boolean isAllProductPageVisible() {
+//        try {
+//            return allProductsTitle.isDisplayed();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
+
 
     public String getPageTitle() {
         return driver.getTitle();
@@ -86,8 +97,68 @@ public class ProductPage {
         viewProductBtn.click();
     }
 
-    public String normalizeText(WebElement element, String textToRemove) {
-        return element.getText().replace(textToRemove, "").trim();
+    public void clickAddToCartFirstProduct() {
+        if (productList.isEmpty()) {
+            throw new RuntimeException("No products found on this page!");
+        }
+        WebElement firstProduct = productList.get(0);
+        hoverElement(firstProduct);
+        WebElement addToCartBtn = firstProduct.findElement(By.cssSelector("a.btn.btn-default.add-to-cart"));
+
+        waitToBeClickable(addToCartBtn);
+        safeClick(addToCartBtn);
+        //addToCartBtn.click();
+    }
+
+    public void addProductsToCart(int count, boolean viewCartAfter) {
+        if (productList.isEmpty()) {
+            throw new RuntimeException("No product found on this page!");
+        }
+        if (count > productList.size()) {
+            throw new RuntimeException("Not enough products on this page!");
+        }
+
+        for (int i = 0; i < count; i++) {
+            WebElement product = productList.get(i);
+            hoverElement(product);
+           // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", product);
+
+            WebElement addToCartBtn = product.findElement(By.cssSelector(".overlay-content a.btn.btn-default.add-to-cart"));
+            // waitToBeClickable(addToCartBtn);
+            safeClick(addToCartBtn);
+            if (i < count - 1) {
+                clickContinueShoppingBtn();
+            } else {
+                if (viewCartAfter) {
+                    clickViewCartBtn();
+                } else {
+                    clickContinueShoppingBtn();
+                }
+            }
+
+        }
+    }
+
+    public void clickContinueShoppingBtn() {
+        waitToBeClickable(continueShoppingBtn);
+        continueShoppingBtn.click();
+    }
+
+    public void clickAddToCartSecondProduct() {
+        if (productList.isEmpty()) {
+            throw new RuntimeException("No product found on this page!");
+        }
+        WebElement secondProduct = productList.get(1);
+        hoverElement(secondProduct);
+        WebElement addToCartBtn = secondProduct.findElement(By.cssSelector(".overlay-content a.btn.btn-default.add-to-cart"));
+        waitToBeClickable(addToCartBtn);
+        addToCartBtn.click();
+    }
+
+    public void clickViewCartBtn() {
+        waitToBeClickable(viewCartBtn);
+        viewCartBtn.click();
+
     }
 
     public String getName() {
