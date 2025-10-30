@@ -94,7 +94,8 @@ public class ProductPage extends BasePage {
         }
         WebElement firstProduct = productList.get(0);
         WebElement viewProductBtn = firstProduct.findElement(By.cssSelector(".choose a"));
-        viewProductBtn.click();
+        safeClick(viewProductBtn);
+        //viewProductBtn.click();
     }
 
     public void clickAddToCartFirstProduct() {

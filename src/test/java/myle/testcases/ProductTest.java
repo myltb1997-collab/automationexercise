@@ -32,7 +32,7 @@ public class ProductTest extends BaseTest {
     @Test(priority = 2)
     public void testSearchProduct() {
         homePage = new HomePage(driver);
-        String nameProduct = "Top";
+        String nameProduct = "white";
 
         Assert.assertTrue(homePage.isHomePageVisible());
         productPage = homePage.movToProductPage();
