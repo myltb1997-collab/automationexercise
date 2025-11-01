@@ -1,58 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="2" passed="1" failed="1" skipped="0">
+<testng-results total="11" passed="9" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-07T16:22:57Z" name="myle.testcases.SignUpTest" finished-at="2025-07-07T16:25:40Z" duration-ms="162779">
+  <suite started-at="2025-10-31T19:07:43Z" name="Surefire suite" finished-at="2025-10-31T19:12:22Z" duration-ms="279546">
     <groups>
     </groups>
-    <test started-at="2025-07-07T16:22:57Z" name="Command line test" finished-at="2025-07-07T16:25:40Z" duration-ms="162779">
-      <class name="myle.testcases.SignUpTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:22:57Z" name="setUp" finished-at="2025-07-07T23:23:05Z" duration-ms="7873" status="PASS">
+    <test started-at="2025-10-31T19:07:43Z" name="Surefire test" finished-at="2025-10-31T19:12:22Z" duration-ms="279546">
+      <class name="myle.testcases.ProductTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:04Z" name="setUp" finished-at="2025-11-01T02:10:13Z" duration-ms="8225" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginThenDelete()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:23:05Z" name="testLoginThenDelete" finished-at="2025-07-07T23:23:25Z" duration-ms="20416" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testLoginThenDelete -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:23:25Z" name="tearDown" finished-at="2025-07-07T23:23:29Z" duration-ms="3782" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:23:29Z" name="setUp" finished-at="2025-07-07T23:23:35Z" duration-ms="5712" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="testRegisterUser()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:23:35Z" name="testRegisterUser" finished-at="2025-07-07T23:25:36Z" duration-ms="121390" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+        <test-method signature="testProductAllandProductDetail()[pri:1, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:13Z" name="testProductAllandProductDetail" finished-at="2025-11-01T02:10:19Z" duration-ms="6107" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[invalid session id: session deleted as the browser has closed the connection
-from disconnected: unable to send message to renderer
-  (Session info: chrome=138.0.7204.96)
+              <![CDATA[element click intercepted: Element <a href="/product_details/1" style="color: brown;">...</a> is not clickable at point (541, 621). Other element would receive the click: <iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20251029/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-1677597403311019&amp;fa=1&amp;ifi=5&amp;uci=a!5&amp;btvi=2" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNvpl-yRz5ADFQ9gDwIdLMoRfQ" data-load-complete="true"></iframe>
+  (Session info: chrome=141.0.7390.123)
 Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [59140e63001731dcac855d642db57d7f, clickElement {id=f.51EFF6A1AAFE3FF6F73EAECE8DECD8AD.d.2635943350492D44CE7C204656511085.e.474}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.96, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52769}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52769/devtoo..., se:cdpVersion: 138.0.7204.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (59140e63001731dcac855d642db57d7f)] -> css selector: a[href='/login']]
-Session ID: 59140e63001731dcac855d642db57d7f]]>
+Command: [214b51490e5dce3b4da4ba5fe6ee69a5, clickElement {id=f.55A351E08EBE5FC5D23E095EAD506796.d.6DA7813F213C02DD9171B9993CE3782A.e.2246}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56500}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56500/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[[[ChromeDriver: chrome on windows (214b51490e5dce3b4da4ba5fe6ee69a5)] -> css selector: div.product-image-wrapper]] -> css selector: .choose a]
+Session ID: 214b51490e5dce3b4da4ba5fe6ee69a5]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: unable to send message to renderer
-  (Session info: chrome=138.0.7204.96)
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a href="/product_details/1" style="color: brown;">...</a> is not clickable at point (541, 621). Other element would receive the click: <iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20251029/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-1677597403311019&amp;fa=1&amp;ifi=5&amp;uci=a!5&amp;btvi=2" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNvpl-yRz5ADFQ9gDwIdLMoRfQ" data-load-complete="true"></iframe>
+  (Session info: chrome=141.0.7390.123)
 Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [59140e63001731dcac855d642db57d7f, clickElement {id=f.51EFF6A1AAFE3FF6F73EAECE8DECD8AD.d.2635943350492D44CE7C204656511085.e.474}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.96, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52769}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52769/devtoo..., se:cdpVersion: 138.0.7204.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (59140e63001731dcac855d642db57d7f)] -> css selector: a[href='/login']]
-Session ID: 59140e63001731dcac855d642db57d7f
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+Command: [214b51490e5dce3b4da4ba5fe6ee69a5, clickElement {id=f.55A351E08EBE5FC5D23E095EAD506796.d.6DA7813F213C02DD9171B9993CE3782A.e.2246}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56500}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56500/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[[[ChromeDriver: chrome on windows (214b51490e5dce3b4da4ba5fe6ee69a5)] -> css selector: div.product-image-wrapper]] -> css selector: .choose a]
+Session ID: 214b51490e5dce3b4da4ba5fe6ee69a5
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -62,19 +46,10 @@ Session ID: 59140e63001731dcac855d642db57d7f
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy10.click(Unknown Source)
-	at myle.pages.HomePage.clickLoginbtn(HomePage.java:31)
-	at myle.utilities.AccountUtils.createAccount(AccountUtils.java:14)
-	at myle.testcases.SignUpTest.testRegisterUser(SignUpTest.java:20)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at myle.pages.ProductPage.clickViewFirstProduct(ProductPage.java:97)
+	at myle.testcases.ProductTest.testProductAllandProductDetail(ProductTest.java:22)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
@@ -92,29 +67,194 @@ Session ID: 59140e63001731dcac855d642db57d7f
 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
 	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:110)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductAllandProductDetail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:19Z" name="tearDown" finished-at="2025-11-01T02:10:22Z" duration-ms="3249" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:22Z" name="setUp" finished-at="2025-11-01T02:10:28Z" duration-ms="5507" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSearchProduct()[pri:2, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:28Z" name="testSearchProduct" finished-at="2025-11-01T02:10:34Z" duration-ms="6761" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at myle.testcases.ProductTest.testSearchProduct(ProductTest.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.ProductTest@41a6d121]" started-at="2025-11-01T02:10:34Z" name="tearDown" finished-at="2025-11-01T02:10:38Z" duration-ms="3228" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- myle.testcases.ProductTest -->
+      <class name="myle.testcases.SignUpTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:10:38Z" name="setUp" finished-at="2025-11-01T02:10:43Z" duration-ms="5850" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegisterUser()[pri:1, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:10:43Z" name="testRegisterUser" finished-at="2025-11-01T02:10:59Z" duration-ms="15316" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRegisterUser -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4d3167f4]" started-at="2025-07-07T23:25:36Z" name="tearDown" finished-at="2025-07-07T23:25:40Z" duration-ms="3574" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:10:59Z" name="tearDown" finished-at="2025-11-01T02:11:02Z" duration-ms="3239" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:02Z" name="setUp" finished-at="2025-11-01T02:11:10Z" duration-ms="8323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLoginThenDelete()[pri:2, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:10Z" name="testLoginThenDelete" finished-at="2025-11-01T02:11:35Z" duration-ms="24849" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginThenDelete -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:35Z" name="tearDown" finished-at="2025-11-01T02:11:38Z" duration-ms="3248" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:38Z" name="setUp" finished-at="2025-11-01T02:11:45Z" duration-ms="6932" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLoginFail()[pri:3, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:45Z" name="testLoginFail" finished-at="2025-11-01T02:11:48Z" duration-ms="3131" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginFail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:48Z" name="tearDown" finished-at="2025-11-01T02:11:52Z" duration-ms="3231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:52Z" name="setUp" finished-at="2025-11-01T02:11:58Z" duration-ms="6557" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogOutUser()[pri:4, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:11:58Z" name="testLogOutUser" finished-at="2025-11-01T02:12:07Z" duration-ms="8463" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogOutUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:12:07Z" name="tearDown" finished-at="2025-11-01T02:12:10Z" duration-ms="3288" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:12:10Z" name="setUp" finished-at="2025-11-01T02:12:15Z" duration-ms="5435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegisterUserWithExistingEmail()[pri:5, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:12:15Z" name="testRegisterUserWithExistingEmail" finished-at="2025-11-01T02:12:19Z" duration-ms="3666" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegisterUserWithExistingEmail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.SignUpTest@4f449e8f]" started-at="2025-11-01T02:12:19Z" name="tearDown" finished-at="2025-11-01T02:12:22Z" duration-ms="3257" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- myle.testcases.SignUpTest -->
-    </test> <!-- Command line test -->
-  </suite> <!-- myle.testcases.SignUpTest -->
+      <class name="myle.testcases.ContactUsTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:25Z" name="setUp" finished-at="2025-11-01T02:09:31Z" duration-ms="5281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testContactUsForm()[pri:1, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:31Z" name="testContactUsForm" finished-at="2025-11-01T02:09:38Z" duration-ms="6858" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContactUsForm -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:38Z" name="tearDown" finished-at="2025-11-01T02:09:41Z" duration-ms="3288" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:41Z" name="setUp" finished-at="2025-11-01T02:09:47Z" duration-ms="6152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testTestCasePage()[pri:2, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:47Z" name="testTestCasePage" finished-at="2025-11-01T02:09:48Z" duration-ms="1411" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTestCasePage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.ContactUsTest@5baaae4c]" started-at="2025-11-01T02:09:48Z" name="tearDown" finished-at="2025-11-01T02:09:52Z" duration-ms="3217" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- myle.testcases.ContactUsTest -->
+      <class name="myle.testcases.CartTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.CartTest@2375b321]" started-at="2025-11-01T02:07:43Z" name="setUp" finished-at="2025-11-01T02:07:53Z" duration-ms="10111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddProductInCart()[pri:1, instance:myle.testcases.CartTest@2375b321]" started-at="2025-11-01T02:07:53Z" name="testAddProductInCart" finished-at="2025-11-01T02:09:22Z" duration-ms="89205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddProductInCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.CartTest@2375b321]" started-at="2025-11-01T02:09:22Z" name="tearDown" finished-at="2025-11-01T02:09:25Z" duration-ms="3269" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- myle.testcases.CartTest -->
+      <class name="myle.testcases.HomeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myle.testcases.HomeTest@5b6e8f77]" started-at="2025-11-01T02:09:52Z" name="setUp" finished-at="2025-11-01T02:09:58Z" duration-ms="6551" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifySubscription()[pri:1, instance:myle.testcases.HomeTest@5b6e8f77]" started-at="2025-11-01T02:09:58Z" name="verifySubscription" finished-at="2025-11-01T02:10:01Z" duration-ms="2319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySubscription -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:myle.testcases.HomeTest@5b6e8f77]" started-at="2025-11-01T02:10:01Z" name="tearDown" finished-at="2025-11-01T02:10:04Z" duration-ms="3870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- myle.testcases.HomeTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>

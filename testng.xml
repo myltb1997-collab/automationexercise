@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AutomationExerciseSuite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="AutomationTests">
+        <classes>
+            <class name="myle.testcases.HomeTest"/>
+            <class name="myle.testcases.SignUpTest"/>
+            <class name="myle.testcases.ProductTest"/>
+            <class name="myle.testcases.ContactUsTest"/>
+            <class name="myle.testcases.CartTest"/>
+            <!-- thêm class test khác nếu có -->
+        </classes>
+    </test>
+</suite>

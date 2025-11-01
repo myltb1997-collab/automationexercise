@@ -1,0 +1,1 @@
+{"uuid":"7b78f82a-8ccd-4d19-a963-d2280e06d4aa","name":"myle.testcases.BaseTest.setUp","children":["d38ab637-ef19-47ad-be10-476fbd3118ba"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1761937663405,"stop":1761937673290}],"afters":[],"start":1761937663404,"stop":1761937673290}
