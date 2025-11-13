@@ -1,5 +1,6 @@
 package myle.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class HomePage extends BasePage {
 
@@ -24,6 +26,8 @@ public class HomePage extends BasePage {
     WebElement subscriptionTitle;
     @FindBy(css = "#success-subscribe")
     WebElement successSubscribeMsg;
+    @FindBy(css ="div.product-image-wrapper")
+    List <WebElement> productList;
 
 
     public HomePage(WebDriver driver) {
@@ -60,6 +64,16 @@ public class HomePage extends BasePage {
         String actualMsg = successMgs.getText();
         waitToInvisible(successSubscribeMsg);
         return actualMsg;
+    }
+
+    public ProductPage clickViewFirstProduct(int indexNumber){
+        if(productList.isEmpty()){
+            throw new RuntimeException("No products found on this page!");
+        }
+        WebElement getProduct = productList.get(indexNumber);
+        WebElement viewProductBtn = getProduct.findElement(By.cssSelector(".choose a"));
+        safeClick(viewProductBtn);
+        return new ProductPage(driver);
     }
 
 

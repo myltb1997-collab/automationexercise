@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Generator {
     public static String randomEmail() {
-        String firstname = "tester";
+        String firstname = "Myle_test";
         String domain = "@gmail.com";
         String bodyrandom = getRandomAlphaNumeric(6);
         String email = firstname + bodyrandom + domain;

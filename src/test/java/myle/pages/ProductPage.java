@@ -37,9 +37,15 @@ public class ProductPage extends BasePage {
     WebElement continueShoppingBtn;
     @FindBy(xpath = "//u[normalize-space()='View Cart']")
     WebElement viewCartBtn;
+    @FindBy(css = "button[class='btn btn-default cart']")
+    WebElement addToCartBtn;
+
+    @FindBy(css = "#quantity")
+    WebElement quantityField;
 
     @FindBy(xpath = "//h2[normalize-space()='All Products']")
     WebElement allProductsTitle;
+
 
     public ProductPage(WebDriver driver) {
         super(driver);
@@ -156,10 +162,10 @@ public class ProductPage extends BasePage {
         addToCartBtn.click();
     }
 
-    public void clickViewCartBtn() {
+    public CartPage clickViewCartBtn() {
         waitToBeClickable(viewCartBtn);
         viewCartBtn.click();
-
+        return new CartPage(driver);
     }
 
     public String getName() {
@@ -218,4 +224,14 @@ public class ProductPage extends BasePage {
         }
         return true;
     }
+
+    public void inputQuantity(int quantity){
+        quantityField.clear();
+        quantityField.sendKeys(String.valueOf(quantity));
+    }
+
+    public void clickAddToCart(){
+        addToCartBtn.click();
+    }
+
 }

@@ -126,14 +126,14 @@ public class BasePage {
                 return; // thành công thì thoát
 
             } catch (Exception e) {
-                System.out.println("⚠️ Retry click lần " + (i + 1) + " vì: " + e.getClass().getSimpleName());
+                System.out.println("Retry click: " + (i + 1) + " vì: " + e.getClass().getSimpleName());
                 try { Thread.sleep(500); } catch (InterruptedException ignored) {}
             }
         }
 
         // fallback: click bằng JS nếu thất bại 3 lần
         js.executeScript("arguments[0].click();", element);
-        System.out.println("✅ Dùng JS click fallback thành công");
+        System.out.println("Dung JS click thanh cong!");
     }
 
 

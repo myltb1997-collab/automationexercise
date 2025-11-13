@@ -37,5 +37,8 @@ public class CartPage extends BasePage {
         return Double.parseDouble(normalizeText(productTotal,"Rs."));
     }
 
+    public int getProductQuantity() {
+        return Integer.parseInt(productQuantity.getText().trim());
+    }
 
 }

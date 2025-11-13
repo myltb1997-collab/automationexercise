@@ -15,7 +15,7 @@ public class CartTest extends BaseTest {
     CartPage cartPage;
 
     @Test(priority = 1) //TC12 Add Products in Cart
-    public void testAddProductInCart(){
+    public void testAddProductInCart() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible());
         productPage = homePage.movToProductPage();
@@ -24,19 +24,35 @@ public class CartTest extends BaseTest {
 //        productPage.clickContinueShoppingBtn();
 //        productPage.clickAddToCartSecondProduct();
 //        productPage.clickViewCartBtn();
-        productPage.addProductsToCart(2,true);
+        productPage.addProductsToCart(2, true);
         cartPage = new CartPage(driver);
         List<WebElement> items = cartPage.getCartItems();
-        Assert.assertEquals(items.size(),2);
+        Assert.assertEquals(items.size(), 2);
 
-        for (WebElement item:items){
+        for (WebElement item : items) {
             double price = cartPage.getPriceProduct(item);
             int quatity = cartPage.getQuantityProduct(item);
-            double expectedTotal = price*quatity;
+            double expectedTotal = price * quatity;
             double actualTotal = cartPage.getTotalProduct(item);
-            Assert.assertEquals(actualTotal,expectedTotal);
+            Assert.assertEquals(actualTotal, expectedTotal);
         }
-
     }
+
+    @Test(priority = 2) //TC 13: Verify Product quantity in Cart
+    public void verifyProductQuantityInCart() {
+        int indexNumber = 1;
+        int numberQuantity = 4;
+        homePage = new HomePage(driver);
+        homePage.isHomePageVisible();
+        productPage = homePage.clickViewFirstProduct(indexNumber);
+        Assert.assertTrue(driver.getCurrentUrl().contains("product_details/"), "This is not product detail page!!!");
+        productPage.inputQuantity(numberQuantity);
+        productPage.clickAddToCart();
+        cartPage = productPage.clickViewCartBtn();
+
+        int actualQuantity = cartPage.getProductQuantity();
+        Assert.assertEquals(actualQuantity,numberQuantity,"Incorrect product quantity in cart");
+    }
+
 
 }
