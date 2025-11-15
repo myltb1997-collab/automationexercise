@@ -23,7 +23,7 @@ Project about: Selenium, Maven, TestNG with Java. Design pattern POM + Allure re
 
 <img width="808" height="312" alt="image" src="https://github.com/user-attachments/assets/8e9158a3-faf3-40ca-b6ad-40608f31c912" />
 
-6: OK to save all confic
+6: OK to save all config
 
 
 
@@ -38,6 +38,12 @@ Project about: Selenium, Maven, TestNG with Java. Design pattern POM + Allure re
 
 3: In build -> Configure -> Post build action
 <img width="875" height="433" alt="image" src="https://github.com/user-attachments/assets/7ff6c1bc-7563-42da-b2c5-821686f5fae8" />
+
+**Result after build**
+
+<img width="1328" height="515" alt="image" src="https://github.com/user-attachments/assets/e3cd5243-ac3b-4029-9180-d88736ea067e" />
+<img width="774" height="520" alt="image" src="https://github.com/user-attachments/assets/8e0bf634-c33a-4d64-8d4d-afe603fa2491" />
+
 
 
 
