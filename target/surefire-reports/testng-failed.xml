@@ -3,48 +3,18 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test name="Surefire test">
     <classes>
-      <class name="myle.testcases.BaseTest"/>
-      <class name="myle.testcases.CartTest"/>
-      <class name="myle.testcases.ContactUsTest"/>
       <class name="myle.testcases.HomeTest"/>
-      <class name="myle.testcases.ProductTest"/>
-      <class name="myle.testcases.SignUpTest"/>
     </classes>
   </test> <!-- Surefire test -->
   <test name="Surefire test(failed)">
     <classes>
-      <class name="myle.testcases.ProductTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="testSearchProduct"/>
-          <include name="testProductAllandProductDetail"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- myle.testcases.ProductTest -->
-      <class name="myle.testcases.ContactUsTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- myle.testcases.ContactUsTest -->
-      <class name="myle.testcases.CartTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- myle.testcases.CartTest -->
       <class name="myle.testcases.HomeTest">
         <methods>
           <include name="tearDown"/>
+          <include name="registerWhileCheckout"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- myle.testcases.HomeTest -->
-      <class name="myle.testcases.SignUpTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- myle.testcases.SignUpTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

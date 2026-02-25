@@ -16,6 +16,9 @@ public class BasePage {
     protected WebDriver driver;
     protected Actions actions;
 
+    protected WebDriverWait wait;
+    private static final int TIMEOUT = 15;
+
     @FindBy(css = "a[href='/products']")
     WebElement navProducts;
     @FindBy(css = "a[href='/view_cart']")
@@ -32,6 +35,7 @@ public class BasePage {
         this.driver = driver;
         this.actions = new Actions(driver);
         PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
 
     public ProductPage movToProductPage() {
@@ -68,20 +72,31 @@ public class BasePage {
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
+    public void scrollToTop(WebElement element) {
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+
     public WebElement waitToVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
     public void waitToInvisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public void waitToBeClickable(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void waitForPageStable() {
+        wait.until(d ->
+                ((JavascriptExecutor) d)
+                        .executeScript("return document.readyState")
+                        .equals("complete")
+        );
     }
 
     public void hoverElement(WebElement element) {
@@ -104,7 +119,7 @@ public class BasePage {
                         ").forEach(function(e){ e.style.display='none'; e.remove(); });"
         );
         //Cuon xuong 1 chut tranh vung quang cao che
-      //  js.executeScript("window.scrollBy(0, 400);");
+        //  js.executeScript("window.scrollBy(0, 400);");
     }
 
 
@@ -127,7 +142,10 @@ public class BasePage {
 
             } catch (Exception e) {
                 System.out.println("Retry click: " + (i + 1) + " vì: " + e.getClass().getSimpleName());
-                try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ignored) {
+                }
             }
         }
 
@@ -135,6 +153,5 @@ public class BasePage {
         js.executeScript("arguments[0].click();", element);
         System.out.println("Dung JS click thanh cong!");
     }
-
 
 }

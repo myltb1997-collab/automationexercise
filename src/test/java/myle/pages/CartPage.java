@@ -16,6 +16,10 @@ public class CartPage extends BasePage {
     WebElement productQuantity;
     @FindBy(css = "tbody tr[id^='product-'] td[class='cart_total']")
     WebElement productTotal;
+    @FindBy(css = "a.btn.btn-default.check_out")
+    WebElement checkOutBtn;
+    @FindBy(xpath = "//u[normalize-space()='Register / Login']")
+    WebElement registerBtn;
 
 
     public CartPage(WebDriver driver) {
@@ -39,6 +43,17 @@ public class CartPage extends BasePage {
 
     public int getProductQuantity() {
         return Integer.parseInt(productQuantity.getText().trim());
+    }
+
+    public void clickProceedToCheckOutBtn(){
+        checkOutBtn.isDisplayed();
+        checkOutBtn.click();
+    }
+
+    public SignUpPage clickRegisterBtn(){
+        registerBtn.isDisplayed();
+        registerBtn.click();
+        return new SignUpPage(driver);
     }
 
 }

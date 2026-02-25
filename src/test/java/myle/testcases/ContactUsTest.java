@@ -12,9 +12,11 @@ public class ContactUsTest extends BaseTest {
 
     @Test(priority = 1)
     public void testContactUsForm() throws InterruptedException {
+        String uploadFilePath = System.getProperty("user.dir") + "\\src\\uploadFiles\\";
+        String feedbackFile = "feedback.txt";
+        String feedbackFilePath = uploadFilePath+ feedbackFile;
 
         homePage = new HomePage(driver);
-        //contactUsPage = new ContactUsPage(driver);
         String name = "TC6";
         String email = Generator.randomEmail();
         String subject = "Test TC6" + System.currentTimeMillis();
@@ -29,7 +31,7 @@ public class ContactUsTest extends BaseTest {
         contactUsPage.enterSubject(subject);
         contactUsPage.enterMessage(message);
 
-        contactUsPage.uploadFile();
+        contactUsPage.uploadFile(feedbackFilePath);
         contactUsPage.clickSubmitBtn();
         //chuyeern ve alert popup
         contactUsPage.clickOkBtn();
@@ -46,6 +48,5 @@ public class ContactUsTest extends BaseTest {
         contactUsPage = homePage.moveToTestCasePage();
         Assert.assertTrue(contactUsPage.isTestCasePageVisible());
     }
-
 
 }

@@ -20,7 +20,6 @@ public class SignUpTest extends BaseTest {
         String password = "12345678";
 
         AccountUtils.createAccount(driver, "TC1", email, password);
-
         signUpPage.clickDeleteAccountBtn();
         Assert.assertTrue(signUpPage.isAccountDeletedVisible());
         signUpPage.clickContinueDeleteBtn();
@@ -33,21 +32,17 @@ public class SignUpTest extends BaseTest {
         signUpPage = homePage.movToLoginPage();
         String email = Generator.randomEmail();
         String password = "123456";
-
         AccountUtils.createAccount(driver, "TC2", email, password);
-
+       // handleGoogleVignette(driver);
         homePage.clickLogOutBtn();
-
         signUpPage.enterLoginInfo(email, password);
         signUpPage.clickLoginBtn();
-
         Assert.assertEquals(signUpPage.getLoggedInUsername(), "TC2");
-
         signUpPage.clickDeleteAccountBtn();
+       // handleGoogleVignette(driver);
         Assert.assertTrue(signUpPage.isAccountDeletedVisible());
         signUpPage.clickContinueDeleteBtn();
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-
     }
 
     @Test(priority = 3)
@@ -63,23 +58,19 @@ public class SignUpTest extends BaseTest {
         signUpPage.enterLoginInfo(email, password);
         signUpPage.clickLoginBtn();
         Assert.assertTrue(signUpPage.loginFailMgs());
-
     }
 
     @Test(priority = 4)
     public void testLogOutUser() {
         homePage = new HomePage(driver);
-        signUpPage = homePage.movToLoginPage();
 
         String email = "myle01@gmail.com";
         String password = "123456";
-
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
         signUpPage = homePage.movToLoginPage();
         signUpPage.enterLoginInfo(email, password);
         signUpPage.clickLoginBtn();
         Assert.assertTrue(signUpPage.isLoggedAsTextDisplay());
-
         homePage.clickLogOutBtn();
         Assert.assertTrue(signUpPage.isNewSignUpVisible());
     }
@@ -87,7 +78,6 @@ public class SignUpTest extends BaseTest {
     @Test(priority = 5)
     public void testRegisterUserWithExistingEmail() {
         homePage = new HomePage(driver);
-        signUpPage = homePage.movToLoginPage();
 
         String name = "TC5";
         String email = "myle01@gmail.com";

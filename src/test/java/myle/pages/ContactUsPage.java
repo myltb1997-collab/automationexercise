@@ -27,7 +27,7 @@ public class ContactUsPage {
     WebElement alertMsgSuccess;
     @FindBy(css = "a[class$='btn btn-success']")
     WebElement homeBtn;
-    @FindBy(xpath = "//b[contains(.,'Test Cases')]")
+    @FindBy(xpath = "//b[text()='Test Cases']")
     WebElement testcaseText;
 
     public ContactUsPage(WebDriver driver) {
@@ -63,8 +63,8 @@ public class ContactUsPage {
         inputMessage.sendKeys(message);
     }
 
-    public void uploadFile() {
-        uploadfileBtn.sendKeys("C:\\Users\\DELL\\OneDrive\\Máy tính\\testAuto\\check.txt");
+    public void uploadFile(String path) {
+        uploadfileBtn.sendKeys(path);
     }
 
     public void clickSubmitBtn() {

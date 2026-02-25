@@ -21,15 +21,15 @@ import static myle.utilities.Links.URL_ACCOUNT_CREATED;
 public class SignUpPage {
 
     WebDriver driver;
-    @FindBy(name = "name")
-    WebElement usernameSignupInput;
+    @FindBy(css = "input[data-qa='signup-name']")
+    WebElement nameSignupInput;
     @FindBy(css = "input[data-qa='signup-email']")
     WebElement emailSignupInput;
     @FindBy(css = "button[data-qa='signup-button']")
     WebElement signUpBtn;
-    @FindBy(xpath = "//h2[normalize-space()='New User Signup!']")
+    @FindBy(xpath = "//h2[text()='New User Signup!']")
     WebElement verifySignUpPage;
-    @FindBy(xpath = "//b[normalize-space()='Enter Account Information']")
+    @FindBy(xpath = "//b[text ()='Enter Account Information']")
     WebElement verifyAccInfo;
     @FindBy(id = "password")
     WebElement passwordInput;
@@ -81,9 +81,9 @@ public class SignUpPage {
     WebElement passwordLoginInput;
     @FindBy(css = "button[data-qa='login-button']")
     WebElement loginBtn;
-    @FindBy(xpath = "//p[normalize-space()='Your email or password is incorrect!']")
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
     WebElement loginErrorMsg;
-    @FindBy(xpath = "//p[.='Email Address already exist!']")
+    @FindBy(xpath = "//p[text()='Email Address already exist!']")
     WebElement emailExistMsg;
 
     //Ham xay dung
@@ -93,8 +93,8 @@ public class SignUpPage {
     }
 
     public SignUpPage enterSignUpName(String username) {
-        usernameSignupInput.clear();
-        usernameSignupInput.sendKeys(username);
+        nameSignupInput.clear();
+        nameSignupInput.sendKeys(username);
         return this;
     }
 
