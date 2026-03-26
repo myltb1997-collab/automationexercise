@@ -50,6 +50,12 @@ public class CartPage extends BasePage {
         checkOutBtn.click();
     }
 
+    public CheckoutPage clickProceedToCheckOutBtnAsLoggedIn(){
+        checkOutBtn.isDisplayed();
+        checkOutBtn.click();
+        return new CheckoutPage(driver);
+    }
+
     public SignUpPage clickRegisterBtn(){
         registerBtn.isDisplayed();
         registerBtn.click();

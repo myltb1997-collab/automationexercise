@@ -21,7 +21,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         //options.addArguments("--incognito");
-        options.addArguments("--headless=new");
+        //options.addArguments("--headless=new");
 
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-infobars");

@@ -108,5 +108,8 @@ public class HomePage extends BasePage {
         return new CartPage(driver);
     }
 
+    public SignUpPage clickSignupLoginBtn(){
+        return movToLoginPage();
+    }
 
 }
