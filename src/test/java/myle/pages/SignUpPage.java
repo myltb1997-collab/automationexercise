@@ -6,7 +6,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,9 +17,8 @@ import java.util.Random;
 
 import static myle.utilities.Links.URL_ACCOUNT_CREATED;
 
-public class SignUpPage {
+public class SignUpPage extends BasePage {
 
-    WebDriver driver;
     @FindBy(css = "input[data-qa='signup-name']")
     WebElement nameSignupInput;
     @FindBy(css = "input[data-qa='signup-email']")
@@ -88,8 +86,7 @@ public class SignUpPage {
 
     //Ham xay dung
     public SignUpPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public SignUpPage enterSignUpName(String username) {

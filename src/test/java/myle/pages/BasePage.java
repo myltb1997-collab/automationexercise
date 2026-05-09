@@ -1,5 +1,6 @@
 package myle.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -97,6 +98,66 @@ public class BasePage {
                         .executeScript("return document.readyState")
                         .equals("complete")
         );
+    }
+
+    /**
+     * Chờ element hiển thị dựa trên locator By
+     * @param by Locator của element
+     * @return WebElement khi visible
+     */
+    public WebElement waitForElementVisible(By by) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    /**
+     * Chờ element có mặt trong DOM (không cần visible)
+     * @param by Locator của element
+     * @return WebElement khi present
+     */
+    public WebElement waitForElementPresent(By by) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    /**
+     * Chờ element có thể click được
+     * @param by Locator của element
+     */
+    public void waitForElementClickable(By by) {
+        wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    /**
+     * Chờ element biến mất khỏi DOM
+     * @param by Locator của element
+     */
+    public void waitForElementInvisible(By by) {
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    /**
+     * Chờ text xuất hiện trong element
+     * @param by Locator của element
+     * @param text Text cần chờ
+     */
+    public void waitForTextInElement(By by, String text) {
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
+    }
+
+    /**
+     * Chờ URL chứa text nhất định
+     * @param urlPart URL fragment cần chờ
+     */
+    public void waitForUrlContains(String urlPart) {
+        wait.until(ExpectedConditions.urlContains(urlPart));
+    }
+
+    /**
+     * Tạo WebDriverWait với timeout custom
+     * @param timeoutSeconds Thời gian timeout (giây)
+     * @return WebDriverWait instance
+     */
+    public WebDriverWait createWaitWithTimeout(int timeoutSeconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
     }
 
     public void hoverElement(WebElement element) {

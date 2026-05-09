@@ -115,7 +115,7 @@ public class HomeTest extends BaseTest {
         // 15. Click 'Pay and Confirm Order' button
         paymentPage.clickPayAndConfirmOrderBtn();
         
-        // 16. Verify success message 'Your order has been placed successfully!'
+        // 16. Verify success message 'Congratulations! Your order has been confirmed!'
         Assert.assertTrue(paymentPage.isSuccessMessageDisplayed(), "Verify success message is displayed");
         Assert.assertTrue(paymentPage.getSuccessMessage().contains("Congratulations! Your order has been confirmed!"), 
                 "Verify success message text");

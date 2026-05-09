@@ -4,11 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
@@ -83,7 +81,7 @@ public class HomePage extends BasePage {
         return new ProductPage(driver);
     }
 
-    public void clickAddToCartBtn() throws InterruptedException {
+    public void clickAddToCartBtn() {
         if (productList.isEmpty()) {
             throw new RuntimeException("No product in this page!");
         }
@@ -100,9 +98,9 @@ public class HomePage extends BasePage {
     }
 
 
-    public CartPage clickViewCartBtn() throws InterruptedException {
-        driver.findElement(By.cssSelector("div.modal-dialog.modal-confirm")).isDisplayed();
-        Thread.sleep(2000);
+    public CartPage clickViewCartBtn() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-dialog.modal-confirm")));
         hoverElement(viewCartBtn);
         viewCartBtn.click();
         return new CartPage(driver);
