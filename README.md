@@ -2,7 +2,24 @@ This is my demo automation testing.
 
 Web practice: https://automationexercise.com
 
-Project about: Selenium, Maven, TestNG with Java. Design pattern POM + Allure report. Deploy in Jenkins.
+# E-commerce Automation Testing Project
+
+## Technologies
+- Selenium WebDriver
+- TestNG
+- Page Object Model (POM)
+- Allure Report
+- Jenkins
+
+## Test Coverage
+- Login
+- Product Search
+- Category Navigation
+- Shopping Cart
+
+## Total
+17+ Automated Test Cases
+
 
 **Deploy in Jenkins:**
 
