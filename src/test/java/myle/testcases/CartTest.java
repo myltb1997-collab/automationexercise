@@ -20,10 +20,6 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(homePage.isHomePageVisible());
         productPage = homePage.movToProductPage();
 
-//        productPage.clickAddToCartFirstProduct();
-//        productPage.clickContinueShoppingBtn();
-//        productPage.clickAddToCartSecondProduct();
-//        productPage.clickViewCartBtn();
         productPage.addProductsToCart(2, true);
         cartPage = new CartPage(driver);
         List<WebElement> items = cartPage.getCartItems();
@@ -52,6 +48,24 @@ public class CartTest extends BaseTest {
 
         int actualQuantity = cartPage.getProductQuantity();
         Assert.assertEquals(actualQuantity,numberQuantity,"Incorrect product quantity in cart");
+    }
+
+    @Test(priority = 3) //TC 17: Remove Products From Cart
+    public void testRemoveProductsFromCart() {
+        homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
+
+        homePage.clickAddToCartBtn();
+        cartPage = homePage.clickViewCartBtn();
+        Assert.assertTrue(cartPage.isCartPageDisplayed(), "Verify that cart page is displayed");
+        Assert.assertTrue(cartPage.getCartItemCount() > 0, "Verify product is added to cart");
+
+        String productId = cartPage.getProductIdByIndex(0);
+        cartPage.removeProductById(productId);
+
+        Assert.assertTrue(cartPage.isProductRemoved(productId), "Verify that product is removed from the cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 0, "Verify cart has no products after removal");
+        Assert.assertTrue(cartPage.isEmptyCartMessageVisible(), "Verify empty cart message is displayed");
     }
 
 

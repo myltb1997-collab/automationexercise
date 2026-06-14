@@ -6,12 +6,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
@@ -203,10 +200,9 @@ public class SignUpPage extends BasePage {
     }
 
     public boolean isCreateAccountVisible() {
-        // return driver.getCurrentUrl().equals(URL_ACCOUNT_CREATED);
+        // ✓ RULE: Sử dụng waitForUrlContains() từ BasePage thay vì tạo WebDriverWait riêng
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            wait.until(ExpectedConditions.urlContains(URL_ACCOUNT_CREATED));
+            waitForUrlContains(URL_ACCOUNT_CREATED);
             return true;
 
         } catch (TimeoutException e) {

@@ -3,10 +3,7 @@ package myle.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 import static myle.utilities.Links.URL_PRODUCTS;
@@ -52,10 +49,9 @@ public class ProductPage extends BasePage {
     }
 
     public boolean isAllProductPageVisible() {
-        /*Assert.assertEquals(driver.getCurrentUrl(), URL_PRODUCTS);*/
+        // ✓ RULE: Sử dụng waitForUrlContains() từ BasePage thay vì tạo WebDriverWait riêng
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            wait.until(ExpectedConditions.urlContains(URL_PRODUCTS));
+            waitForUrlContains(URL_PRODUCTS);
             return true;
         } catch (TimeoutException e) {
             return false;

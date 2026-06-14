@@ -5,10 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -40,7 +37,12 @@ public class HomePage extends BasePage {
     }
 
     public boolean isHomePageVisible() {
-        return sliderLocator.isDisplayed();
+        try {
+            waitForPageStable();
+            return waitToVisible(sliderLocator).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void clickLogOutBtn() {
@@ -99,8 +101,8 @@ public class HomePage extends BasePage {
 
 
     public CartPage clickViewCartBtn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-dialog.modal-confirm")));
+        // ✓ RULE: Sử dụng waitForElementVisible() từ BasePage thay vì tạo WebDriverWait riêng
+        waitForElementVisible(By.cssSelector("div.modal-dialog.modal-confirm"));
         hoverElement(viewCartBtn);
         viewCartBtn.click();
         return new CartPage(driver);
