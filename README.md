@@ -4,6 +4,32 @@ Web practice: https://automationexercise.com
 
 Project about: Selenium, Maven, TestNG with Java. Design pattern POM + Allure report. Deploy in Jenkins.
 
+---
+
+## Quick Start - Running Tests & Reports
+
+### Run all tests with automatic retry on failure:
+```powershell
+.\run-tests-rerun.ps1
+```
+
+### Generate and view Allure Report:
+```powershell
+.\generate-allure-report.ps1
+```
+This will:
+1. Clean old reports
+2. Run all tests
+3. Generate fresh Allure report
+4. Open it in your browser
+
+### Notes on Allure Folders:
+- `allure-report/` and `allure-results/` are **generated automatically** on each test run
+- These folders are **NOT committed** to version control (see `.gitignore`)
+- Delete them anytime and regenerate with `generate-allure-report.ps1`
+
+---
+
 **Deploy in Jenkins:**
 
 1: Add item -> input name, click to Maven project option -> Ok btn

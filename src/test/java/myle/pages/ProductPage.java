@@ -208,11 +208,11 @@ public class ProductPage extends BasePage {
         if (productList.isEmpty()) {
             return false;
         }
-        //Check tung san pham hien thi
+        // Check if each product is related to the keyword
         for (WebElement product : productList) {
             String productName = product.getText().toLowerCase();
             if (!productName.contains(keyword.toLowerCase())) {
-                return false; // list product khong relate voi sp da search
+                return false;
             }
             if (!product.isDisplayed()) {
                 return false;
@@ -221,12 +221,12 @@ public class ProductPage extends BasePage {
         return true;
     }
 
-    public void inputQuantity(int quantity){
+    public void inputQuantity(int quantity) {
         quantityField.clear();
         quantityField.sendKeys(String.valueOf(quantity));
     }
 
-    public void clickAddToCart(){
+    public void clickAddToCart() {
         addToCartBtn.click();
     }
 

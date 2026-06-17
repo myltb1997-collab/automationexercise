@@ -18,7 +18,7 @@ public class CartTest extends BaseTest {
     public void testAddProductInCart() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible());
-        productPage = homePage.movToProductPage();
+        productPage = homePage.navigation.movToProductPage();
 
         productPage.addProductsToCart(2, true);
         cartPage = new CartPage(driver);
@@ -27,8 +27,8 @@ public class CartTest extends BaseTest {
 
         for (WebElement item : items) {
             double price = cartPage.getPriceProduct(item);
-            int quatity = cartPage.getQuantityProduct(item);
-            double expectedTotal = price * quatity;
+            int quantity = cartPage.getQuantityProduct(item);
+            double expectedTotal = price * quantity;
             double actualTotal = cartPage.getTotalProduct(item);
             Assert.assertEquals(actualTotal, expectedTotal);
         }

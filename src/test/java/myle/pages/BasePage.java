@@ -20,17 +20,6 @@ public class BasePage {
     protected WebDriverWait wait;
     private static final int TIMEOUT = 15;
 
-    @FindBy(css = "a[href='/products']")
-    WebElement navProducts;
-    @FindBy(css = "a[href='/view_cart']")
-    WebElement navCart;
-    @FindBy(css = "a[href='/login']")
-    WebElement navsignIn;
-
-    @FindBy(css = "a[href='/test_cases']")
-    WebElement navTestcases;
-    @FindBy(css = "a[href='/contact_us']")
-    WebElement navContactUs;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -39,34 +28,6 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
 
-    public ProductPage movToProductPage() {
-        navProducts.isDisplayed();
-        navProducts.click();
-        return new ProductPage(driver);
-    }
-
-    public ContactUsPage moveToTestCasePage() {
-        navTestcases.isDisplayed();
-        navTestcases.click();
-        return new ContactUsPage(driver);
-    }
-
-    public CartPage moveToCartPage() {
-        navCart.click();
-        return new CartPage(driver);
-    }
-
-    public SignUpPage movToLoginPage() {
-        navsignIn.isEnabled();
-        navsignIn.click();
-        return new SignUpPage(driver);
-    }
-
-    public ContactUsPage movToContactPage() {
-        Assert.assertTrue(navContactUs.isDisplayed());
-        navContactUs.click();
-        return new ContactUsPage(driver);
-    }
 
     public void scrollToBottom() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -191,7 +152,7 @@ public class BasePage {
             try {
                 hideAds();
 
-                // Scroll nhẹ nếu element chưa trong vùng hiển thị
+                // Scroll element into view if not currently visible
                 Boolean inView = (Boolean) js.executeScript(
                         "var r = arguments[0].getBoundingClientRect();" +
                                 "return r.top >= 0 && r.bottom <= window.innerHeight;", element);
@@ -199,10 +160,10 @@ public class BasePage {
 
                 waitToBeClickable(element);
                 element.click();
-                return; // thành công thì thoát
+                return;
 
             } catch (Exception e) {
-                System.out.println("Retry click: " + (i + 1) + " vì: " + e.getClass().getSimpleName());
+                System.out.println("Retry click: " + (i + 1) + " reason: " + e.getClass().getSimpleName());
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ignored) {
@@ -210,9 +171,8 @@ public class BasePage {
             }
         }
 
-        // fallback: click bằng JS nếu thất bại 3 lần
+        // Fallback: JavaScript click if 3 attempts fail
         js.executeScript("arguments[0].click();", element);
-        System.out.println("Dung JS click thanh cong!");
     }
 
 }

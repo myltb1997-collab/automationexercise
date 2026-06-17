@@ -122,10 +122,12 @@ public class CartPage extends BasePage {
         return new CheckoutPage(driver);
     }
 
-    public SignUpPage clickRegisterBtn(){
+    public SignUpPage clickRegisterBtn() {
         registerBtn.isDisplayed();
         registerBtn.click();
         return new SignUpPage(driver);
     }
 
 }
+
+

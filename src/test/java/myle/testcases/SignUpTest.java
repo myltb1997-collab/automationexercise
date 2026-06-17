@@ -15,7 +15,7 @@ public class SignUpTest extends BaseTest {
     public void testRegisterUser() {
         //  signUpPage = new SignUpPage(driver);
         homePage = new HomePage(driver);
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         String email = Generator.randomEmail();
         String password = "12345678";
 
@@ -29,7 +29,7 @@ public class SignUpTest extends BaseTest {
     @Test(priority = 2)
     public void testLoginThenDelete() {
         homePage = new HomePage(driver);
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         String email = Generator.randomEmail();
         String password = "123456";
         AccountUtils.createAccount(driver, "TC2", email, password);
@@ -49,12 +49,12 @@ public class SignUpTest extends BaseTest {
     public void testLoginFail() {
         //signUpPage = new SignUpPage(driver);
         homePage = new HomePage(driver);
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         String email = "myle03@gmail.com";
         String password = "12345678Aa";
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         signUpPage.enterLoginInfo(email, password);
         signUpPage.clickLoginBtn();
         Assert.assertTrue(signUpPage.loginFailMgs());
@@ -67,7 +67,7 @@ public class SignUpTest extends BaseTest {
         String email = "myle01@gmail.com";
         String password = "123456";
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         signUpPage.enterLoginInfo(email, password);
         signUpPage.clickLoginBtn();
         Assert.assertTrue(signUpPage.isLoggedAsTextDisplay());
@@ -83,7 +83,7 @@ public class SignUpTest extends BaseTest {
         String email = "myle01@gmail.com";
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        signUpPage = homePage.movToLoginPage();
+        signUpPage = homePage.navigation.movToLoginPage();
         Assert.assertTrue(signUpPage.isNewSignUpVisible());
         signUpPage.enterSignUpName(name).
                 enterSignUpEmail(email);
