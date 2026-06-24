@@ -1,10 +1,20 @@
 # IntelliJ IDEA
 .idea/
 *.iml
-allure-*
+
 # Build output
 /target/
 /out/
+
+# Allure Reports (generated on each test run, should NOT be committed)
+allure-report/
+allure-results/
+.allure/
+
+# AI Assistant folders (development tools)
+.aiassistant/
+.continue/
+AI/
 
 # Logs
 *.log

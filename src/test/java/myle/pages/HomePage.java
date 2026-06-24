@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage extends BasePage {
+    public final NavigationComponent navigation;
 
     @FindBy(xpath = "//a[text()=' Logout']")
     WebElement signOutBtn;
@@ -34,6 +35,7 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
+        this.navigation = new NavigationComponent(driver);
     }
 
     public boolean isHomePageVisible() {
@@ -93,10 +95,6 @@ public class HomePage extends BasePage {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", addToCartBtn);
 
-//        hoverElement(addToCartBtn);
-//        waitToBeClickable(addToCartBtn);
-//        addToCartBtn.click();
-
     }
 
 
@@ -109,7 +107,7 @@ public class HomePage extends BasePage {
     }
 
     public SignUpPage clickSignupLoginBtn(){
-        return movToLoginPage();
+        return navigation.moveToLoginPage();
     }
 
 }

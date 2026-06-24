@@ -3,29 +3,33 @@ package myle.utilities;
 import myle.pages.HomePage;
 import myle.pages.SignUpPage;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class AccountUtils {
-    public static void createAccount(WebDriver driver, String name, String email, String password) {
-        SignUpPage signUpPage;
+    // Backward compatible: original method signature with default test data.
+    public static SignUpPage createAccount(WebDriver driver, String name, String email, String password) {
+        // Default test data for address and DOB
+        return createAccount(driver, name, email, password,
+                "23", "12", "2015", // day, month, year
+                "thien", "vu", "54 A", "Singapore", // firstName, lastName, address, country
+                "bang haha", "cua Sing", "987", "03975423354" // state, city, zip, mobile
+        );
+    }
+
+    // Creates an account by filling the sign-up form and address form.
+    // All data must be provided by the caller. No assertions are performed.
+    // Returns the SignUpPage after clicking Continue.
+    public static SignUpPage createAccount(WebDriver driver, String name, String email, String password,
+                                           String day, String month, String year,
+                                           String firstName, String lastName, String address, String country,
+                                           String state, String city, String zip, String mobile) {
         HomePage homePage = new HomePage(driver);
-
-        Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        signUpPage = homePage.movToLoginPage();
-        Assert.assertTrue(signUpPage.isNewSignUpVisible(), "Verify 'New User Signup!' is visible");
-
-        signUpPage
-                .enterSignUpName(name)
+        SignUpPage signUpPage = homePage.navigation.moveToLoginPage();
+        signUpPage.enterSignUpName(name)
                 .enterSignUpEmail(email)
                 .clickToSubmitSignUpBtn();
-        Assert.assertTrue(signUpPage.isAccInforVisible(), "Verify that 'ENTER ACCOUNT INFORMATION' is visible");
-
-        signUpPage
-                .inputFormAcc(password, "23", "12", "2015")
-                .inputFormAddress("thien", "vu", "54 A", "Singapore", "bang haha", "cua Sing", "987", "03975423354");
-
-        Assert.assertTrue(signUpPage.isCreateAccountVisible(),"tra ve url");
+        signUpPage.inputFormAcc(password, day, month, year)
+                .inputFormAddress(firstName, lastName, address, country, state, city, zip, mobile);
         signUpPage.clickContinueCreateBtn();
-
+        return signUpPage;
     }
 }

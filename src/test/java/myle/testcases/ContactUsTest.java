@@ -11,7 +11,7 @@ public class ContactUsTest extends BaseTest {
     ContactUsPage contactUsPage;
 
     @Test(priority = 1)
-    public void testContactUsForm() throws InterruptedException {
+    public void testContactUsForm() {
         String uploadFilePath = System.getProperty("user.dir") + "\\src\\uploadFiles\\";
         String feedbackFile = "feedback.txt";
         String feedbackFilePath = uploadFilePath+ feedbackFile;
@@ -23,7 +23,7 @@ public class ContactUsTest extends BaseTest {
         String message = Generator.randomMesseger(30);
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        contactUsPage = homePage.movToContactPage();
+        contactUsPage = homePage.navigation.moveToContactPage();
         Assert.assertTrue(contactUsPage.isGetInTouchVisible());
 
         contactUsPage.enterName(name);
@@ -45,7 +45,7 @@ public class ContactUsTest extends BaseTest {
     public void testTestCasePage() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        contactUsPage = homePage.moveToTestCasePage();
+        contactUsPage = homePage.navigation.moveToTestCasePage();
         Assert.assertTrue(contactUsPage.isTestCasePageVisible());
     }
 
