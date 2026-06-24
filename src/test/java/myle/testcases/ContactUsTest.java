@@ -23,7 +23,7 @@ public class ContactUsTest extends BaseTest {
         String message = Generator.randomMesseger(30);
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
-        contactUsPage = homePage.navigation.movToContactPage();
+        contactUsPage = homePage.navigation.moveToContactPage();
         Assert.assertTrue(contactUsPage.isGetInTouchVisible());
 
         contactUsPage.enterName(name);

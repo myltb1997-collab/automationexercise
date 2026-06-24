@@ -13,7 +13,7 @@ public class ProductTest extends BaseTest {
     public void testProductAllandProductDetail() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible());
-        productPage = homePage.navigation.movToProductPage();
+        productPage = homePage.navigation.moveToProductPage();
         Assert.assertTrue(productPage.isAllProductPageVisible());
         String actualTitle = productPage.getPageTitle();
         Assert.assertEquals(actualTitle, "Automation Exercise - All Products");
@@ -35,7 +35,7 @@ public class ProductTest extends BaseTest {
         String nameProduct = "white";
 
         Assert.assertTrue(homePage.isHomePageVisible());
-        productPage = homePage.navigation.movToProductPage();
+        productPage = homePage.navigation.moveToProductPage();
         Assert.assertTrue(productPage.isAllProductPageVisible());
         productPage.searchProduct(nameProduct);
         productPage.clickSearchBtn();

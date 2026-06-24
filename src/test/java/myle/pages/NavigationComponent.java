@@ -25,7 +25,7 @@ public class NavigationComponent {
         PageFactory.initElements(driver, this);
     }
 
-    public ProductPage movToProductPage() {
+    public ProductPage moveToProductPage() {
         navProducts.isDisplayed();
         navProducts.click();
         return new ProductPage(driver);
@@ -42,13 +42,13 @@ public class NavigationComponent {
         return new CartPage(driver);
     }
 
-    public SignUpPage movToLoginPage() {
+    public SignUpPage moveToLoginPage() {
         navsignIn.isEnabled();
         navsignIn.click();
         return new SignUpPage(driver);
     }
 
-    public ContactUsPage movToContactPage() {
+    public ContactUsPage moveToContactPage() {
         Assert.assertTrue(navContactUs.isDisplayed());
         navContactUs.click();
         return new ContactUsPage(driver);

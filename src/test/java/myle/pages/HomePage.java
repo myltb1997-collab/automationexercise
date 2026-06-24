@@ -107,7 +107,7 @@ public class HomePage extends BasePage {
     }
 
     public SignUpPage clickSignupLoginBtn(){
-        return navigation.movToLoginPage();
+        return navigation.moveToLoginPage();
     }
 
 }

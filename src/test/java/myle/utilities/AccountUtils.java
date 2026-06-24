@@ -23,7 +23,7 @@ public class AccountUtils {
                                            String firstName, String lastName, String address, String country,
                                            String state, String city, String zip, String mobile) {
         HomePage homePage = new HomePage(driver);
-        SignUpPage signUpPage = homePage.navigation.movToLoginPage();
+        SignUpPage signUpPage = homePage.navigation.moveToLoginPage();
         signUpPage.enterSignUpName(name)
                 .enterSignUpEmail(email)
                 .clickToSubmitSignUpBtn();

@@ -18,7 +18,7 @@ public class CartTest extends BaseTest {
     public void testAddProductInCart() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible());
-        productPage = homePage.navigation.movToProductPage();
+        productPage = homePage.navigation.moveToProductPage();
 
         productPage.addProductsToCart(2, true);
         cartPage = new CartPage(driver);
