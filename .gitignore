@@ -15,6 +15,7 @@ allure-results/
 .aiassistant/
 .continue/
 AI/
+.ai/
 
 # Logs
 *.log

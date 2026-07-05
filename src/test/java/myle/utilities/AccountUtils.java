@@ -5,25 +5,27 @@ import myle.pages.SignUpPage;
 import org.openqa.selenium.WebDriver;
 
 public class AccountUtils {
-    // Backward compatible: original method signature with default test data.
     public static SignUpPage createAccount(WebDriver driver, String name, String email, String password) {
-        // Default test data for address and DOB
         return createAccount(driver, name, email, password,
-                "23", "12", "2015", // day, month, year
-                "thien", "vu", "54 A", "Singapore", // firstName, lastName, address, country
-                "bang haha", "cua Sing", "987", "03975423354" // state, city, zip, mobile
-        );
+                TestDataReader.getString("accounts.defaults.day"),
+                TestDataReader.getString("accounts.defaults.month"),
+                TestDataReader.getString("accounts.defaults.year"),
+                TestDataReader.getString("accounts.defaults.firstName"),
+                TestDataReader.getString("accounts.defaults.lastName"),
+                TestDataReader.getString("accounts.defaults.address"),
+                TestDataReader.getString("accounts.defaults.country"),
+                TestDataReader.getString("accounts.defaults.state"),
+                TestDataReader.getString("accounts.defaults.city"),
+                TestDataReader.getString("accounts.defaults.zipcode"),
+                TestDataReader.getString("accounts.defaults.mobile"));
     }
 
-    // Creates an account by filling the sign-up form and address form.
-    // All data must be provided by the caller. No assertions are performed.
-    // Returns the SignUpPage after clicking Continue.
     public static SignUpPage createAccount(WebDriver driver, String name, String email, String password,
                                            String day, String month, String year,
                                            String firstName, String lastName, String address, String country,
                                            String state, String city, String zip, String mobile) {
         HomePage homePage = new HomePage(driver);
-        SignUpPage signUpPage = homePage.navigation.moveToLoginPage();
+        SignUpPage signUpPage = homePage.openLoginPage();
         signUpPage.enterSignUpName(name)
                 .enterSignUpEmail(email)
                 .clickToSubmitSignUpBtn();

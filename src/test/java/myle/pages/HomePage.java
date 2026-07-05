@@ -1,5 +1,6 @@
 package myle.pages;
 
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage extends BasePage {
-    public final NavigationComponent navigation;
+    private final NavigationComponent navigation;
 
     @FindBy(xpath = "//a[text()=' Logout']")
     WebElement signOutBtn;
@@ -38,10 +39,30 @@ public class HomePage extends BasePage {
         this.navigation = new NavigationComponent(driver);
     }
 
+    public SignUpPage openLoginPage() {
+        return navigation.openLoginPage();
+    }
+
+    public ProductPage openProductsPage() {
+        return navigation.openProductsPage();
+    }
+
+    public CartPage openCartPage() {
+        return navigation.openCartPage();
+    }
+
+    public ContactUsPage openContactUsPage() {
+        return navigation.openContactUsPage();
+    }
+
+    public TestCasesPage openTestCasesPage() {
+        return navigation.openTestCasesPage();
+    }
+
     public boolean isHomePageVisible() {
         try {
-            waitForPageStable();
-            return waitToVisible(sliderLocator).isDisplayed();
+            WaitUtil.waitForPageReady(driver);
+            return WaitUtil.waitForVisible(driver, sliderLocator).isDisplayed();
         } catch (Exception e) {
             return false;
         }
@@ -69,9 +90,9 @@ public class HomePage extends BasePage {
 
     public String isSubscribeSuccess() {
         //Lay Webelement de getText cua message ve kiem tra
-        WebElement successMgs = waitToVisible(successSubscribeMsg);
+        WebElement successMgs = WaitUtil.waitForVisible(driver, successSubscribeMsg);
         String actualMsg = successMgs.getText();
-        waitToInvisible(successSubscribeMsg);
+        WaitUtil.waitForInvisible(driver, successSubscribeMsg);
         return actualMsg;
     }
 
@@ -89,7 +110,7 @@ public class HomePage extends BasePage {
         if (productList.isEmpty()) {
             throw new RuntimeException("No product in this page!");
         }
-        waitForPageStable();
+        WaitUtil.waitForPageReady(driver);
         scrollToTop(featuresItemText);
 
         ((JavascriptExecutor) driver)
@@ -100,14 +121,15 @@ public class HomePage extends BasePage {
 
     public CartPage clickViewCartBtn() {
         // ✓ RULE: Sử dụng waitForElementVisible() từ BasePage thay vì tạo WebDriverWait riêng
-        waitForElementVisible(By.cssSelector("div.modal-dialog.modal-confirm"));
+        WaitUtil.waitForElementVisible(driver, By.cssSelector("div.modal-dialog.modal-confirm"));
         hoverElement(viewCartBtn);
         viewCartBtn.click();
         return new CartPage(driver);
     }
 
+    @Deprecated
     public SignUpPage clickSignupLoginBtn(){
-        return navigation.moveToLoginPage();
+        return openLoginPage();
     }
 
 }

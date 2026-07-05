@@ -1,8 +1,10 @@
 package myle.testcases;
 
+import io.qameta.allure.Step;
 import myle.pages.CartPage;
 import myle.pages.HomePage;
 import myle.pages.ProductPage;
+import myle.utilities.TestDataReader;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,16 +16,17 @@ public class CartTest extends BaseTest {
     ProductPage productPage;
     CartPage cartPage;
 
-    @Test(priority = 1) //TC12 Add Products in Cart
+    @Test(priority = 1)
+    @Step("Add multiple products to cart and verify cart totals")
     public void testAddProductInCart() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible());
-        productPage = homePage.navigation.moveToProductPage();
+        productPage = homePage.openProductsPage();
 
-        productPage.addProductsToCart(2, true);
+        productPage.addProductsToCart(TestDataReader.getInt("cart.addProductsCount"), true);
         cartPage = new CartPage(driver);
         List<WebElement> items = cartPage.getCartItems();
-        Assert.assertEquals(items.size(), 2);
+        Assert.assertEquals(items.size(), TestDataReader.getInt("cart.addProductsCount"));
 
         for (WebElement item : items) {
             double price = cartPage.getPriceProduct(item);
@@ -34,10 +37,12 @@ public class CartTest extends BaseTest {
         }
     }
 
-    @Test(priority = 2) //TC 13: Verify Product quantity in Cart
+    @Test(priority = 2)
+    @Step("Verify product quantity in cart is correct")
     public void verifyProductQuantityInCart() {
-        int indexNumber = 1;
-        int numberQuantity = 4;
+        int indexNumber = TestDataReader.getInt("cart.productDetailIndex");
+        int numberQuantity = TestDataReader.getInt("cart.productQuantity");
+
         homePage = new HomePage(driver);
         homePage.isHomePageVisible();
         productPage = homePage.clickViewFirstProduct(indexNumber);
@@ -47,10 +52,11 @@ public class CartTest extends BaseTest {
         cartPage = productPage.clickViewCartBtn();
 
         int actualQuantity = cartPage.getProductQuantity();
-        Assert.assertEquals(actualQuantity,numberQuantity,"Incorrect product quantity in cart");
+        Assert.assertEquals(actualQuantity, numberQuantity, "Incorrect product quantity in cart");
     }
 
-    @Test(priority = 3) //TC 17: Remove Products From Cart
+    @Test(priority = 3)
+    @Step("Remove product from cart and verify cart is empty")
     public void testRemoveProductsFromCart() {
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isHomePageVisible(), "Verify that home page is visible successfully");
@@ -60,13 +66,11 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(cartPage.isCartPageDisplayed(), "Verify that cart page is displayed");
         Assert.assertTrue(cartPage.getCartItemCount() > 0, "Verify product is added to cart");
 
-        String productId = cartPage.getProductIdByIndex(0);
+        String productId = cartPage.getProductIdByIndex(TestDataReader.getInt("cart.removeIndex"));
         cartPage.removeProductById(productId);
 
         Assert.assertTrue(cartPage.isProductRemoved(productId), "Verify that product is removed from the cart");
         Assert.assertEquals(cartPage.getCartItemCount(), 0, "Verify cart has no products after removal");
         Assert.assertTrue(cartPage.isEmptyCartMessageVisible(), "Verify empty cart message is displayed");
     }
-
-
 }

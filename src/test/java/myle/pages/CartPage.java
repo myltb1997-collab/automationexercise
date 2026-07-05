@@ -1,5 +1,6 @@
 package myle.pages;
 
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -39,8 +40,8 @@ public class CartPage extends BasePage {
 
     public boolean isCartPageDisplayed() {
         try {
-            waitForUrlContains("/view_cart");
-            return waitForElementVisible(CART_INFO).isDisplayed();
+            WaitUtil.waitForUrlContains(driver, "/view_cart");
+            return WaitUtil.waitForElementVisible(driver, CART_INFO).isDisplayed();
         } catch (TimeoutException e) {
             return false;
         }
@@ -68,19 +69,19 @@ public class CartPage extends BasePage {
     public void removeProductById(String productId) {
         By productRow = By.cssSelector("#product-" + productId);
         By deleteButton = By.cssSelector("a.cart_quantity_delete[data-product-id='" + productId + "']");
-        waitForElementVisible(productRow);
-        WebElement button = waitForElementVisible(deleteButton);
+        WaitUtil.waitForElementVisible(driver, productRow);
+        WebElement button = WaitUtil.waitForElementVisible(driver, deleteButton);
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView({block: 'center'});" +
                         "arguments[0].dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));",
                 button
         );
         try {
-            waitForElementInvisible(productRow);
+            WaitUtil.waitForElementInvisible(driver, productRow);
         } catch (TimeoutException e) {
             driver.navigate().to(DOMAIN + "/delete_cart/" + productId);
             driver.navigate().to(DOMAIN + "/view_cart");
-            waitForElementInvisible(productRow);
+            WaitUtil.waitForElementInvisible(driver, productRow);
         }
     }
 
@@ -90,7 +91,7 @@ public class CartPage extends BasePage {
 
     public boolean isEmptyCartMessageVisible() {
         try {
-            return waitForElementVisible(EMPTY_CART_MESSAGE).isDisplayed()
+            return WaitUtil.waitForElementVisible(driver, EMPTY_CART_MESSAGE).isDisplayed()
                     && emptyCartMessage.getText().contains("Cart is empty!");
         } catch (TimeoutException e) {
             return false;

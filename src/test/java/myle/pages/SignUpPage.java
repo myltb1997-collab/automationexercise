@@ -1,6 +1,7 @@
 package myle.pages;
 
 import myle.utilities.Links;
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -130,15 +131,6 @@ public class SignUpPage extends BasePage {
         return verifySignUpPage.isDisplayed();
     }
 
-    /* public boolean isNewSignUpVisible() {
-         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-         try {
-             wait.until(ExpectedConditions.visibilityOf(verifySignUpPage));
-             return verifySignUpPage.isDisplayed();
-         } catch (TimeoutException e) {
-             return false;
-         }
-     }*/
     public boolean isAccInforVisible() {
         return verifyAccInfo.isDisplayed();
     }
@@ -202,7 +194,7 @@ public class SignUpPage extends BasePage {
     public boolean isCreateAccountVisible() {
         // ✓ RULE: Sử dụng waitForUrlContains() từ BasePage thay vì tạo WebDriverWait riêng
         try {
-            waitForUrlContains(URL_ACCOUNT_CREATED);
+            WaitUtil.waitForUrlContains(driver, URL_ACCOUNT_CREATED);
             return true;
 
         } catch (TimeoutException e) {

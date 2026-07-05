@@ -1,5 +1,6 @@
 package myle.pages;
 
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,14 +57,14 @@ public class PaymentPage extends BasePage {
     }
 
     public void clickPayAndConfirmOrderBtn() {
-        waitToBeClickable(payConfirmOrderBtn);
+        WaitUtil.waitForClickable(driver, payConfirmOrderBtn);
         payConfirmOrderBtn.click();
-        waitForPageStable();
+        WaitUtil.waitForPageReady(driver);
     }
 
     public boolean isSuccessMessageDisplayed() {
         try {
-            waitToVisible(successMessage);
+            WaitUtil.waitForVisible(driver, successMessage);
             return true;
         } catch (Exception e) {
             return false;

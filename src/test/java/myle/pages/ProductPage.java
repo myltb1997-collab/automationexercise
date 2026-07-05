@@ -1,5 +1,6 @@
 package myle.pages;
 
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -51,7 +52,7 @@ public class ProductPage extends BasePage {
     public boolean isAllProductPageVisible() {
         // ✓ RULE: Sử dụng waitForUrlContains() từ BasePage thay vì tạo WebDriverWait riêng
         try {
-            waitForUrlContains(URL_PRODUCTS);
+            WaitUtil.waitForUrlContains(driver, URL_PRODUCTS);
             return true;
         } catch (TimeoutException e) {
             return false;
@@ -108,7 +109,7 @@ public class ProductPage extends BasePage {
         hoverElement(firstProduct);
         WebElement addToCartBtn = firstProduct.findElement(By.cssSelector("a.btn.btn-default.add-to-cart"));
 
-        waitToBeClickable(addToCartBtn);
+        WaitUtil.waitForClickable(driver, addToCartBtn);
         safeClick(addToCartBtn);
         //addToCartBtn.click();
     }
@@ -127,7 +128,7 @@ public class ProductPage extends BasePage {
            // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", product);
 
             WebElement addToCartBtn = product.findElement(By.cssSelector(".overlay-content a.btn.btn-default.add-to-cart"));
-            // waitToBeClickable(addToCartBtn);
+            // WaitUtil.waitForClickable(driver, addToCartBtn);
             safeClick(addToCartBtn);
             if (i < count - 1) {
                 clickContinueShoppingBtn();
@@ -143,7 +144,7 @@ public class ProductPage extends BasePage {
     }
 
     public void clickContinueShoppingBtn() {
-        waitToBeClickable(continueShoppingBtn);
+        WaitUtil.waitForClickable(driver, continueShoppingBtn);
         continueShoppingBtn.click();
     }
 
@@ -154,12 +155,12 @@ public class ProductPage extends BasePage {
         WebElement secondProduct = productList.get(1);
         hoverElement(secondProduct);
         WebElement addToCartBtn = secondProduct.findElement(By.cssSelector(".overlay-content a.btn.btn-default.add-to-cart"));
-        waitToBeClickable(addToCartBtn);
+        WaitUtil.waitForClickable(driver, addToCartBtn);
         addToCartBtn.click();
     }
 
     public CartPage clickViewCartBtn() {
-        waitToBeClickable(viewCartBtn);
+        WaitUtil.waitForClickable(driver, viewCartBtn);
         viewCartBtn.click();
         return new CartPage(driver);
     }

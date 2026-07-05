@@ -7,51 +7,71 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class NavigationComponent {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     @FindBy(css = "a[href='/products']")
-    WebElement navProducts;
+    WebElement productsLink;
     @FindBy(css = "a[href='/view_cart']")
-    WebElement navCart;
+    WebElement cartLink;
     @FindBy(css = "a[href='/login']")
-    WebElement navsignIn;
+    WebElement loginLink;
     @FindBy(css = "a[href='/test_cases']")
-    WebElement navTestcases;
+    WebElement testCasesLink;
     @FindBy(css = "a[href='/contact_us']")
-    WebElement navContactUs;
+    WebElement contactUsLink;
 
     public NavigationComponent(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public ProductPage moveToProductPage() {
-        navProducts.isDisplayed();
-        navProducts.click();
+    public ProductPage openProductsPage() {
+        productsLink.isDisplayed();
+        productsLink.click();
         return new ProductPage(driver);
     }
 
-    public ContactUsPage moveToTestCasePage() {
-        navTestcases.isDisplayed();
-        navTestcases.click();
-        return new ContactUsPage(driver);
-    }
-
-    public CartPage moveToCartPage() {
-        navCart.click();
+    public CartPage openCartPage() {
+        cartLink.click();
         return new CartPage(driver);
     }
 
-    public SignUpPage moveToLoginPage() {
-        navsignIn.isEnabled();
-        navsignIn.click();
+    public SignUpPage openLoginPage() {
+        loginLink.isEnabled();
+        loginLink.click();
         return new SignUpPage(driver);
     }
 
-    public ContactUsPage moveToContactPage() {
-        Assert.assertTrue(navContactUs.isDisplayed());
-        navContactUs.click();
+    public ContactUsPage openContactUsPage() {
+        Assert.assertTrue(contactUsLink.isDisplayed());
+        contactUsLink.click();
         return new ContactUsPage(driver);
+    }
+
+    public TestCasesPage openTestCasesPage() {
+        testCasesLink.isDisplayed();
+        testCasesLink.click();
+        return new TestCasesPage(driver);
+    }
+
+    @Deprecated
+    public ProductPage moveToProductPage() {
+        return openProductsPage();
+    }
+
+    @Deprecated
+    public CartPage moveToCartPage() {
+        return openCartPage();
+    }
+
+    @Deprecated
+    public SignUpPage moveToLoginPage() {
+        return openLoginPage();
+    }
+
+    @Deprecated
+    public ContactUsPage moveToContactPage() {
+        return openContactUsPage();
     }
 }
 

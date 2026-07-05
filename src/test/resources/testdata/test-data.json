@@ -1,0 +1,126 @@
+{
+  "accounts": {
+    "defaults": {
+      "day": "23",
+      "month": "12",
+      "year": "2015",
+      "firstName": "thien",
+      "lastName": "vu",
+      "address": "54 A",
+      "country": "Singapore",
+      "state": "bang haha",
+      "city": "cua Sing",
+      "zipcode": "987",
+      "mobile": "03975423354"
+    },
+    "tc1": {
+      "name": "TC1",
+      "password": "12345678"
+    },
+    "tc2": {
+      "name": "TC2",
+      "password": "123456"
+    },
+    "tc5": {
+      "name": "TC5",
+      "email": "myle01@gmail.com"
+    },
+    "loginFail": {
+      "email": "myle03@gmail.com",
+      "password": "12345678Aa"
+    },
+    "logoutUser": {
+      "email": "myle01@gmail.com",
+      "password": "123456"
+    },
+    "registerCheckout": {
+      "name": "TC15",
+      "password": "12345678",
+      "day": "23",
+      "month": "12",
+      "year": "2015",
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "54 A Main Street",
+      "country": "Singapore",
+      "state": "Singapore State",
+      "city": "Singapore City",
+      "zipcode": "987654",
+      "mobile": "03975423354"
+    },
+    "checkoutComplete": {
+      "name": "TestUser",
+      "password": "Test@123456",
+      "day": "15",
+      "month": "6",
+      "year": "1990",
+      "firstName": "TestUser",
+      "lastName": "Automation",
+      "address": "123 Test Street",
+      "country": "United States",
+      "state": "TestState",
+      "city": "TestCity",
+      "zipcode": "12345",
+      "mobile": "1234567890",
+      "commentLength": 3,
+      "payment": {
+        "nameOnCard": "Test User",
+        "cardNumber": "4532015112830366",
+        "cvc": "123",
+        "expiryMonth": "12",
+        "expiryYear": "2025"
+      }
+    }
+  },
+  "product": {
+    "allProductsTitle": "Automation Exercise - All Products",
+    "detail": {
+      "name": "Blue Top",
+      "category": "Women > Tops",
+      "price": "Rs. 500",
+      "availability": "In Stock",
+      "condition": "New",
+      "brand": "Polo"
+    },
+    "search": {
+      "term": "white"
+    }
+  },
+  "contactUs": {
+    "name": "TC6",
+    "subjectPrefix": "Test TC6",
+    "feedbackFile": "feedback.txt",
+    "messageLength": 30
+  },
+  "category": {
+    "women": "Women",
+    "womenSubCategory": "Dress",
+    "womenTitle": "WOMEN - DRESS PRODUCTS",
+    "men": "Men",
+    "menSubCategory": "Tshirts",
+    "menTitle": "MEN - TSHIRTS PRODUCTS"
+  },
+  "cart": {
+    "addProductsCount": 2,
+    "productQuantity": 4,
+    "productDetailIndex": 1,
+    "removeIndex": 0
+  },
+  "messages": {
+    "subscriptionTitle": "SUBSCRIPTION",
+    "subscriptionSuccess": "You have been successfully subscribed!",
+    "searchedProducts": "SEARCHED PRODUCTS",
+    "orderConfirmed": "Congratulations! Your order has been confirmed!",
+    "orderConfirmedContains": "order has been confirmed"
+  },
+  "home": {
+    "comment": "This is a test order for automation exercise",
+    "payment": {
+      "nameOnCard": "John Doe",
+      "cardNumber": "4111111111111111",
+      "cvc": "123",
+      "expiryMonth": "12",
+      "expiryYear": "2025"
+    }
+  }
+}

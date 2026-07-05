@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ContactUsPage {
-    WebDriver driver;
+    private final WebDriver driver;
 
     @FindBy(css = "input[placeholder='Name']")
     WebElement inputName;
@@ -27,9 +27,6 @@ public class ContactUsPage {
     WebElement alertMsgSuccess;
     @FindBy(css = "a[class$='btn btn-success']")
     WebElement homeBtn;
-    @FindBy(xpath = "//b[text()='Test Cases']")
-    WebElement testcaseText;
-
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -85,9 +82,4 @@ public class ContactUsPage {
         homeBtn.isDisplayed();
         homeBtn.click();
     }
-
-    public boolean isTestCasePageVisible(){
-       return testcaseText.isDisplayed();
-    }
-
 }

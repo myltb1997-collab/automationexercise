@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspectj>
+    <weaver options="-verbose">
+        <!-- Weave allure aspects into page objects and test classes -->
+        <include within="myle.pages..*"/>
+        <include within="myle.testcases..*"/>
+        <include within="myle.listeners..*"/>
+        <include within="myle.utilities..*"/>
+    </weaver>
+    <aspects>
+        <!-- Include Allure aspect for automatic step reporting -->
+        <aspect name="io.qameta.allure.aspectj.Allure"/>
+    </aspects>
+</aspectj>
+

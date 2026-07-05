@@ -1,5 +1,6 @@
 package myle.pages;
 
+import myle.utilities.WaitUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +35,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public PaymentPage clickPlaceOrderBtn() {
-        waitToBeClickable(placeOrderBtn);
+        WaitUtil.waitForClickable(driver, placeOrderBtn);
         placeOrderBtn.click();
         return new PaymentPage(driver);
     }
