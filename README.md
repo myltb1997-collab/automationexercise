@@ -20,31 +20,6 @@ Web practice: https://automationexercise.com
 ## Total
 17+ Automated Test Cases
 
-
----
-
-## Quick Start - Running Tests & Reports
-
-### Run all tests with automatic retry on failure:
-```powershell
-.\run-tests-rerun.ps1
-```
-
-### Generate and view Allure Report:
-```powershell
-.\generate-allure-report.ps1
-```
-This will:
-1. Clean old reports
-2. Run all tests
-3. Generate fresh Allure report
-4. Open it in your browser
-
-### Notes on Allure Folders:
-- `allure-report/` and `allure-results/` are **generated automatically** on each test run
-- These folders are **NOT committed** to version control (see `.gitignore`)
-- Delete them anytime and regenerate with `generate-allure-report.ps1`
-
 ---
 
 **Deploy in Jenkins:**
@@ -85,7 +60,10 @@ This will:
 **Result after build**
 
 <img width="1328" height="515" alt="image" src="https://github.com/user-attachments/assets/e3cd5243-ac3b-4029-9180-d88736ea067e" />
-<img width="749" height="412" alt="image" src="https://github.com/user-attachments/assets/591dba89-0d91-48fd-ad8f-c3865770e22e" />
+<img width="601" height="398" alt="image" src="https://github.com/user-attachments/assets/9ff51fb3-0aa4-40ef-a800-14b39641d087" />
+<img width="1359" height="633" alt="image" src="https://github.com/user-attachments/assets/87282514-3ad6-4228-ba01-1c3d81b3d512" />
+
+
 
 
 
