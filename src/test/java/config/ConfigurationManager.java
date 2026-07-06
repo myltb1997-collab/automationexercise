@@ -1,6 +1,6 @@
 package config;
 
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -23,7 +23,6 @@ public class ConfigurationManager {
 
     private static Properties properties = null;
     private static final Object lock = new Object();
-    private static final String CONFIG_FILE_PATH = "src/test/resources/config.properties";
 
     /**
      * Private constructor to prevent instantiation.
@@ -49,12 +48,22 @@ public class ConfigurationManager {
      */
     private static void loadProperties() {
         properties = new Properties();
-        try (InputStream input = new FileInputStream(CONFIG_FILE_PATH)) {
+
+        try (InputStream input = ConfigurationManager.class
+                .getClassLoader()
+                .getResourceAsStream("config.properties")) {
+
+            if (input == null) {
+                throw new IOException("config.properties not found in resources folder.");
+            }
+
             properties.load(input);
-            System.out.println("✓ Configuration loaded from: " + CONFIG_FILE_PATH);
+            System.out.println("✓ Configuration loaded from classpath: config.properties");
+
         } catch (IOException e) {
-            System.err.println("⚠ Configuration file not found at: " + CONFIG_FILE_PATH);
-            System.err.println("⚠ Using default values");
+            System.err.println("⚠ Unable to load config.properties: " + e.getMessage());
+            System.err.println("⚠ Using default configuration.");
+
             loadDefaultProperties();
         }
     }
@@ -80,12 +89,15 @@ public class ConfigurationManager {
         System.out.println("✓ Default configuration loaded");
     }
 
-    /**
-     * Get property value as String.
-     *
-     * @param key Property key
-     * @return Property value, or null if not found
-     */
+    public static boolean isHeadless() {
+        return Boolean.parseBoolean(
+                System.getProperty(
+                        "headless",
+                        properties.getProperty("headless", "false")
+                )
+        );
+    }
+
     public static String getProperty(String key) {
         return properties.getProperty(key);
     }

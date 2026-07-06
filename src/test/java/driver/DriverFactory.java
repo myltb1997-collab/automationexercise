@@ -92,7 +92,15 @@ public class DriverFactory {
         // Page load strategy
         PageLoadStrategy strategy = parsePageLoadStrategy(ConfigurationManager.getPageLoadStrategy());
         options.setPageLoadStrategy(strategy);
+        // Headless mode (CI)
+        if (ConfigurationManager.isHeadless()) {
+            options.addArguments("--headless=new");
+        }
 
+        // Recommended options for Linux/GitHub Actions
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
         // Disable notifications and popups
         if (ConfigurationManager.getPropertyAsBoolean("browser.notifications.disabled", true)) {
             options.addArguments("--disable-notifications");
