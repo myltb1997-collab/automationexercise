@@ -2,16 +2,19 @@
 <suite name="AutomationExerciseSuite">
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+        <listener class-name="com.automationexercise.framework.TestExecutionListener"/>
     </listeners>
 
     <test name="AutomationTests">
         <classes>
 
-            <class name="myle.testcases.SignUpTest"/>
-            <class name="myle.testcases.HomeTest"/>
-            <class name="myle.testcases.ProductTest"/>
-            <class name="myle.testcases.ContactUsTest"/>
-            <class name="myle.testcases.CartTest"/>
+            <class name="com.automationexercise.tests.SignUpTest"/>
+            <class name="com.automationexercise.tests.HomeTest"/>
+            <class name="com.automationexercise.tests.ProductTest"/>
+            <class name="com.automationexercise.tests.ContactUsTest"/>
+            <class name="com.automationexercise.tests.CategoryViewTest"/>
+            <class name="com.automationexercise.tests.CartTest"/>
+            <class name="com.automationexercise.tests.CheckoutCompleteTest"/>
 
         </classes>
     </test>
